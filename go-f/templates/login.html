@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Background color */
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            border: 1px solid #ccc; /* Border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow */
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            width: 300px; /* Adjust the width as needed */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px; /* Add some space above the form */
+        }
+
+        label {
+            display: block; /* Make labels block elements */
+            margin-bottom: 5px; /* Add space between labels and input fields */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; /* Border */
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+
+        p.error {
+            color: red;
+            text-align: center;
+        }
+
+        .register-link {
+            text-align: center;
+        }
+
+        .register-link a {
+            text-decoration: none;
+            color: #007bff; /* Link color */
+        }
+
+        .register-link a:hover {
+            text-decoration: underline; /* Underline link on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="form-container">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <input type="submit" value="Login">
+            </form>
+            {{if .Error}}
+            <p class="error">Invalid username or password</p>
+            {{end}}
+            <div class="register-link">
+                <a href="/register">Register</a>
+            </div>
+        </div>
+   </div>
+</body>
+</html>

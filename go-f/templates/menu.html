@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #555;
+        }
+
+        input[type="submit"] {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu</h1>
+    <form action="/place_order" method="post">
+        <ul>
+            {{range .}}
+            <li>
+                <input type="checkbox" id="{{.Name}}" name="item" value="{{.Name}}">
+                <label for="{{.Name}}">{{.Name}} - ${{printf "%.2f" .Price}}</label>
+            </li>
+            {{end}}
+        </ul>
+        <input type="submit" value="Place Order">
+    </form>
+</body>
+</html>
+
